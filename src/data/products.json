@@ -1,0 +1,210 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Sony WH-1000XM5",
+    "slug": "sony-wh-1000xm5",
+    "currentPrice": 279.99,
+    "budgetThreshold": 300.00,
+    "reviewScore": 4.8,
+    "stockLevel": "high",
+    "priceTrend": "down",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 350.00 },
+      { "date": "2024-06-01", "price": 310.00 },
+      { "date": "2025-01-01", "price": 279.99 }
+    ],
+    "alternatives": ["prod-002", "prod-003"]
+  },
+  {
+    "id": "prod-002",
+    "name": "Apple AirPods Pro (2nd Gen)",
+    "slug": "apple-airpods-pro-2nd-gen",
+    "currentPrice": 229.99,
+    "budgetThreshold": 250.00,
+    "reviewScore": 4.7,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 249.00 },
+      { "date": "2024-06-01", "price": 229.99 }
+    ],
+    "alternatives": ["prod-001", "prod-003"]
+  },
+  {
+    "id": "prod-003",
+    "name": "Bose QuietComfort 45",
+    "slug": "bose-quietcomfort-45",
+    "currentPrice": 249.00,
+    "budgetThreshold": 260.00,
+    "reviewScore": 4.5,
+    "stockLevel": "low",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 279.00 },
+      { "date": "2024-06-01", "price": 249.00 }
+    ],
+    "alternatives": ["prod-001", "prod-002"]
+  },
+  {
+    "id": "prod-004",
+    "name": "Samsung Galaxy S24",
+    "slug": "samsung-galaxy-s24",
+    "currentPrice": 799.99,
+    "budgetThreshold": 850.00,
+    "reviewScore": 4.6,
+    "stockLevel": "high",
+    "priceTrend": "down",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 899.99 },
+      { "date": "2024-06-01", "price": 849.99 },
+      { "date": "2025-01-01", "price": 799.99 }
+    ],
+    "alternatives": ["prod-005", "prod-006"]
+  },
+  {
+    "id": "prod-005",
+    "name": "Apple iPhone 15",
+    "slug": "apple-iphone-15",
+    "currentPrice": 899.00,
+    "budgetThreshold": 900.00,
+    "reviewScore": 4.7,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 929.00 },
+      { "date": "2024-06-01", "price": 899.00 }
+    ],
+    "alternatives": ["prod-004", "prod-006"]
+  },
+  {
+    "id": "prod-006",
+    "name": "Google Pixel 8",
+    "slug": "google-pixel-8",
+    "currentPrice": 599.00,
+    "budgetThreshold": 650.00,
+    "reviewScore": 4.4,
+    "stockLevel": "high",
+    "priceTrend": "down",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 699.00 },
+      { "date": "2024-06-01", "price": 649.00 },
+      { "date": "2025-01-01", "price": 599.00 }
+    ],
+    "alternatives": ["prod-004", "prod-005"]
+  },
+  {
+    "id": "prod-007",
+    "name": "Anker PowerCore 26800",
+    "slug": "anker-powercore-26800",
+    "currentPrice": 49.99,
+    "budgetThreshold": 60.00,
+    "reviewScore": 4.3,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 59.99 },
+      { "date": "2024-06-01", "price": 49.99 }
+    ],
+    "alternatives": ["prod-008"]
+  },
+  {
+    "id": "prod-008",
+    "name": "Belkin BoostCharge Pro",
+    "slug": "belkin-boostcharge-pro",
+    "currentPrice": 79.99,
+    "budgetThreshold": 80.00,
+    "reviewScore": 4.2,
+    "stockLevel": "low",
+    "priceTrend": "up",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 69.99 },
+      { "date": "2024-06-01", "price": 74.99 },
+      { "date": "2025-01-01", "price": 79.99 }
+    ],
+    "alternatives": ["prod-007"]
+  },
+  {
+    "id": "prod-009",
+    "name": "Generic BrandX Earbuds",
+    "slug": "generic-brandx-earbuds",
+    "currentPrice": 19.99,
+    "budgetThreshold": 30.00,
+    "reviewScore": 1.8,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 24.99 },
+      { "date": "2024-06-01", "price": 19.99 }
+    ],
+    "alternatives": ["prod-002", "prod-010"]
+  },
+  {
+    "id": "prod-010",
+    "name": "Sony SRS-XB23 Speaker",
+    "slug": "sony-srs-xb23",
+    "currentPrice": 89.99,
+    "budgetThreshold": 100.00,
+    "reviewScore": 4.3,
+    "stockLevel": "out",
+    "priceTrend": "flat",
+    "discontinued": true,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 99.99 },
+      { "date": "2024-06-01", "price": 89.99 }
+    ],
+    "alternatives": ["prod-011"]
+  },
+  {
+    "id": "prod-011",
+    "name": "FakeAudioPro Headphones",
+    "slug": "fakeaudiopro-headphones",
+    "currentPrice": 39.99,
+    "budgetThreshold": 50.00,
+    "reviewScore": 3.9,
+    "stockLevel": "high",
+    "priceTrend": "up",
+    "discontinued": false,
+    "suspectedCounterfeit": true,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 34.99 },
+      { "date": "2024-06-01", "price": 39.99 }
+    ],
+    "alternatives": ["prod-001", "prod-002"]
+  },
+  {
+    "id": "prod-012",
+    "name": "Logitech MX Master 3S",
+    "slug": "logitech-mx-master-3s",
+    "currentPrice": 89.99,
+    "budgetThreshold": 100.00,
+    "reviewScore": 4.9,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 99.99 },
+      { "date": "2024-06-01", "price": 89.99 }
+    ],
+    "alternatives": ["prod-007", "prod-008"]
+  }
+]
