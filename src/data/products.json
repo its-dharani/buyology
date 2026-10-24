@@ -206,5 +206,55 @@
       { "date": "2024-06-01", "price": 89.99 }
     ],
     "alternatives": ["prod-007", "prod-008"]
+  },
+  {
+    "id": "prod-013",
+    "name": "Charlotte Tilbury Moisturiser",
+    "slug": "charlotte-tilbury-moisturiser",
+    "currentPrice": 45.00,
+    "budgetThreshold": 50.00,
+    "reviewScore": 4.6,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 55.00 },
+      { "date": "2025-01-01", "price": 45.00 }
+    ],
+    "alternatives": ["prod-014", "prod-015"]
+  },
+  {
+    "id": "prod-014",
+    "name": "Fenty Beauty Foundation",
+    "slug": "fenty-beauty-foundation",
+    "currentPrice": 38.00,
+    "budgetThreshold": 40.00,
+    "reviewScore": 4.4,
+    "stockLevel": "high",
+    "priceTrend": "flat",
+    "discontinued": true,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-01-01", "price": 40.00 },
+      { "date": "2025-01-01", "price": 38.00 }
+    ],
+    "alternatives": ["prod-013", "prod-015"]
+  },
+  {
+    "id": "prod-015",
+    "name": "NARS Lipstick",
+    "slug": "nars-lipstick",
+    "currentPrice": 32.00,
+    "budgetThreshold": 28.00,
+    "reviewScore": 3.8,
+    "stockLevel": "high",
+    "priceTrend": "unknown",
+    "discontinued": false,
+    "suspectedCounterfeit": false,
+    "priceHistory": [
+      { "date": "2024-06-01", "price": 32.00 }
+    ],
+    "alternatives": ["prod-013", "prod-014"]
   }
 ]
