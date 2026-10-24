@@ -66,4 +66,28 @@ describe('SearchBar', () => {
     await user.click(submitBtn)
     expect(mockLookup).toHaveBeenCalledWith('Test Product')
   })
+
+  it('validation message text mentions 200 characters', async () => {
+    const user = userEvent.setup()
+    render(<SearchBar />)
+    const input = screen.getByRole('textbox', { name: /search for a product by url or name/i })
+    const longName = 'a'.repeat(201)
+    await user.type(input, longName)
+    const submitBtn = screen.getByRole('button', { name: /investigate/i })
+    await user.click(submitBtn)
+    const alert = screen.getByRole('alert')
+    expect(alert.textContent).toMatch(/200 characters/i)
+  })
+
+  it('URL longer than 200 chars does not show the length validation message', async () => {
+    const user = userEvent.setup()
+    render(<SearchBar />)
+    const input = screen.getByRole('textbox', { name: /search for a product by url or name/i })
+    const longUrl = 'https://example.com/' + 'a'.repeat(190)
+    await user.type(input, longUrl)
+    const submitBtn = screen.getByRole('button', { name: /investigate/i })
+    await user.click(submitBtn)
+    expect(mockLookup).toHaveBeenCalled()
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+  })
 })
