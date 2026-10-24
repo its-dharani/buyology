@@ -8,7 +8,6 @@ export default function ActionBar() {
   const verdict = useLookupStore((s) => s.verdict)
 
   const watchlist = useUserDataStore((s) => s.watchlist)
-  const storageError = useUserDataStore((s) => s.storageError)
   const preferences = useUserDataStore((s) => s.preferences)
   const saveCaseFile = useUserDataStore((s) => s.saveCaseFile)
   const addToWatchlist = useUserDataStore((s) => s.addToWatchlist)
@@ -32,7 +31,10 @@ export default function ActionBar() {
       timestamp: new Date().toISOString(),
     }
     saveCaseFile(file)
-    if (storageError) {
+    // Read storageError AFTER the synchronous save so we see the post-save value,
+    // not the stale closure captured at render time (Req 6.5).
+    const postSaveError = useUserDataStore.getState().storageError
+    if (postSaveError) {
       setSaveMsg({ text: 'Failed to save case file.', isError: true })
     } else {
       setSaveMsg({ text: 'Saved to case files!', isError: false })

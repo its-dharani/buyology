@@ -15,7 +15,10 @@ export default function SearchBar() {
       setValidationMsg('Please enter a product name or URL.')
       return
     }
-    if (trimmed.length > 200) {
+    // Allow URLs up to 2048 chars (Req 1.1). Only enforce the 200-char limit for
+    // plain product names (inputs that do not start with a URL scheme).
+    const isUrl = /^https?:\/\//i.test(trimmed)
+    if (!isUrl && trimmed.length > 200) {
       setValidationMsg('Input must be 200 characters or fewer.')
       return
     }

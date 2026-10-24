@@ -15,19 +15,23 @@ const useLookupStore = create<LookupStore>((set) => ({
   lookup: (input: string) => {
     set({ isLoading: true, notFound: false, currentProduct: null, verdict: null })
 
-    // Try URL slug first, then bySlug, then fuzzy name match
+    // Try URL slug first — if parseUrl returns a slug (well-formed URL), only look up
+    // by that slug. If the slug is not in the dataset, do NOT fall through to fuzzy
+    // search (Req 1.8: URL input must not fuzzy-match on the raw URL string).
     const slug = parseUrl(input)
-    let product = slug ? (dataset.bySlug[slug] ?? null) : null
+    let product: ReturnType<typeof fuzzyMatch> = null
 
-    // If URL parse failed or slug not found, try direct slug lookup on trimmed input
-    if (!product) {
+    if (slug !== null) {
+      // Input was a URL — honour slug lookup only
+      product = dataset.bySlug[slug] ?? null
+    } else {
+      // Not a URL — try direct slug lookup on trimmed input, then fuzzy name match
       const trimmed = input.trim().toLowerCase()
       product = dataset.bySlug[trimmed] ?? null
-    }
 
-    // Fall back to fuzzy name match
-    if (!product) {
-      product = fuzzyMatch(input, dataset.products)
+      if (!product) {
+        product = fuzzyMatch(input, dataset.products)
+      }
     }
 
     if (!product) {
