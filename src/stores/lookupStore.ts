@@ -31,6 +31,11 @@ const useLookupStore = create<LookupStore>((set) => ({
     }
 
     if (!product) {
+      useUserDataStore.getState().addHistoryEntry({
+        searchTerm: input.trim(),
+        resultName: 'not found',
+        timestamp: new Date().toISOString(),
+      })
       set({ isLoading: false, notFound: true })
       return
     }

@@ -17,12 +17,13 @@ const useUserDataStore = create<UserDataStore>((set, get) => ({
   },
 
   saveCaseFile: (file) => {
-    try {
-      const next = [...get().caseFiles, file]
-      set({ caseFiles: next, storageError: null })
-      writeStorage(STORAGE_KEYS.caseFiles, next)
-    } catch {
+    const next = [...get().caseFiles, file]
+    set({ caseFiles: next })
+    const ok = writeStorage(STORAGE_KEYS.caseFiles, next)
+    if (!ok) {
       set({ storageError: 'Failed to save case file.' })
+    } else {
+      set({ storageError: null })
     }
   },
 

@@ -37,17 +37,17 @@ export function serialize<T>(value: T): string | null {
 
 /**
  * Writes a value to localStorage under the given key.
- * Silently does nothing if localStorage is unavailable or serialization fails.
+ * Returns true on success, false if localStorage is unavailable, serialization fails, or a write error occurs.
  * Never throws.
  */
-export function writeStorage<T>(key: string, value: T): void {
+export function writeStorage<T>(key: string, value: T): boolean {
   try {
     const serialized = serialize(value)
-    if (serialized !== null) {
-      localStorage.setItem(key, serialized)
-    }
+    if (serialized === null) return false
+    localStorage.setItem(key, serialized)
+    return true
   } catch {
-    // silently ignore write failures
+    return false
   }
 }
 
