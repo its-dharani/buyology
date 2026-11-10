@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { hydrateFromApi } from './data'
 import Navigation from './components/Navigation'
 import SearchBar from './components/SearchBar'
 import ResultView from './components/ResultView'
@@ -32,8 +33,10 @@ export default function App() {
   const activeView = useUIStore((s) => s.activeView)
   const storageError = useUserDataStore((s) => s.storageError)
   const [toastDismissed, setToastDismissed] = useState(false)
+  const apiHydrated = useRef(false)
 
   useEffect(() => {
+    // Hydrate localStorage user data
     const rawPrefs = readStorage<PreferenceState>(STORAGE_KEYS.preferences)
     const rawCaseFiles = readStorage<unknown[]>(STORAGE_KEYS.caseFiles)
     const rawWatchlist = readStorage<WatchlistEntry[]>(STORAGE_KEYS.watchlist)
@@ -50,6 +53,12 @@ export default function App() {
       watchlist: Array.isArray(rawWatchlist) ? rawWatchlist : [],
       history: Array.isArray(rawHistory) ? rawHistory : [],
     })
+
+    // Fetch product catalogue from AWS API (non-blocking — app works without it)
+    if (!apiHydrated.current) {
+      apiHydrated.current = true
+      hydrateFromApi()
+    }
   }, [])
 
   // Reset toast dismissed state when a new error appears
