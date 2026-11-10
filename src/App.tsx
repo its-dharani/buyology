@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { hydrateFromApi } from './data'
 import Navigation from './components/Navigation'
-import SearchBar from './components/SearchBar'
+import HomePage from './components/HomePage'
 import ResultView from './components/ResultView'
 import CaseFilesView from './components/CaseFilesView'
 import WatchlistView from './components/WatchlistView'
@@ -71,18 +71,21 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans">
       <Navigation />
-      <main className="max-w-4xl mx-auto px-4 py-6">
+      <main>
         {showSearch ? (
-          <>
-            <SearchBar />
-            {activeView === 'result' && <ResultView />}
-          </>
+          activeView === 'search' ? (
+            <HomePage />
+          ) : (
+            <div className="max-w-4xl mx-auto px-4 py-6">
+              <ResultView />
+            </div>
+          )
         ) : activeView === 'caseFiles' ? (
-          <CaseFilesView />
+          <div className="max-w-4xl mx-auto px-4 py-6"><CaseFilesView /></div>
         ) : activeView === 'watchlist' ? (
-          <WatchlistView />
+          <div className="max-w-4xl mx-auto px-4 py-6"><WatchlistView /></div>
         ) : (
-          <HistoryView />
+          <div className="max-w-4xl mx-auto px-4 py-6"><HistoryView /></div>
         )}
       </main>
       {storageError && !toastDismissed && (
